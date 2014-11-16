@@ -1,0 +1,20 @@
+<ion-content class="has-header">  
+    <form novalidate="novalidate" ng-submit="doLogin()" type="POST" name="loginForm" >
+      <label class="item item-input">
+        <span class="input-label">Username</span>
+        <input type="text" ng-model="login.username" name="login.username">
+      </label>
+      <label class="item item-input">
+      <span class="input-label">Password</span>
+        <input type="password" ng-model="login.password" name="login.password">
+      </label>
+      <label class="item item-input">
+        <button type="submit" class="button button-block button-positive">
+        Sign In
+        </button>
+      </label>   
+      <div class='forgot-password-link'>
+        <a ui-sref="auth.forgot-password">Forgot Password</a>
+      </div>
+    </form>  
+</ion-content>

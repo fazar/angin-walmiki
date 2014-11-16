@@ -1,0 +1,50 @@
+.slider {
+  height: 100%;
+
+  .slider-slide {
+    padding-top: 80px;
+    color: #000;
+    background-color: #fff;
+    text-align: center;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+  }
+}
+
+#logo {
+  margin: 30px 0px;
+}
+
+#list {
+  width: 170px;
+  margin: 30px auto;
+  font-size: 20px;
+
+  ol {
+    margin-top: 30px;
+
+    li {
+      text-align: left;
+      list-style: decimal;
+      margin: 10px 0px;
+    }
+  }
+}
+
+.interest-item {
+  display: inline-block;
+  padding: 7px;
+  margin: 4px;
+  border: 1px solid #e0e0e0;
+}
+
+.chosen {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.button-follow {
+  position: absolute;
+  top: 2px;
+  right: 20px
+}
