@@ -98,6 +98,6 @@ angular.module('Lookats', ['ionic', 'config', 'lookats.controllers', 'lookats.se
   })
   ;
 
-  $urlRouterProvider.otherwise('/auth/welcome');
+  $urlRouterProvider.otherwise('/tab/home');
 
 });
