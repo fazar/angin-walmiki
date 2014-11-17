@@ -32,7 +32,7 @@ angular.module('lookats.controllers')
 				if (isFromRegister) {
 					$state.go('interest');
 				} else {
-					$state.go('home.timeline');
+					$state.go('tab.home');
 				}
 				alert('sukses login ' + data.token);
 				console.log(data.token);

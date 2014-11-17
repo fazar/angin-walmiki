@@ -5,7 +5,7 @@ angular.module('lookats.controllers')
  
   // Called to navigate to the main app
   $scope.startApp = function() {
-    $state.go('welcome');
+    $state.go('auth.welcome');
   };
   $scope.next = function() {
     $ionicSlideBoxDelegate.next();

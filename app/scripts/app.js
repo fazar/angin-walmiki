@@ -31,10 +31,10 @@ angular.module('Lookats', ['ionic', 'config', 'lookats.controllers', 'lookats.se
     templateUrl: 'templates/main.html',
     controller: 'MainCtrl'
   })
-  .state('welcome', {
+  /*.state('welcome', {
     url:'/welcome',
     templateUrl: 'templates/welcome.html'
-  })
+  })*/
   .state('auth', {
     abstract: true,
     url: '/auth',
@@ -50,15 +50,32 @@ angular.module('Lookats', ['ionic', 'config', 'lookats.controllers', 'lookats.se
     templateUrl: 'templates/auth/register.html',
     controller: 'authCtrl'
   })
-  .state('home', {
-    abstract: true,
-    url: '/home',
-    templateUrl: 'templates/home/layout.html'
+  .state('auth.welcome', {
+    url:'/welcome',
+    templateUrl: 'templates/welcome.html'
   })
-  .state('home.timeline', {
-    url: '/timeline',
-    templateUrl: 'templates/home/timeline.html',
-    controller: 'homeCtrl'
+  .state('tab', {
+    url: '/tab',
+    abstract: true,
+    templateUrl: 'templates/home/layout.html'
+  })  
+  .state('tab.home', {
+    url: '/home',
+    views: {
+      'tab-home': {
+        templateUrl: 'templates/home/timeline.html',
+        controller: 'homeCtrl'
+      }
+    }
+  })
+  .state('tab.camera', {
+    url: '/camera',
+    views: {
+      'tab-camera': {
+        templateUrl: 'templates/home/camera.html',
+        controller: 'homeCtrl'
+      }
+    }
   })
   .state('profile', {
     url:'/profile',
@@ -81,6 +98,6 @@ angular.module('Lookats', ['ionic', 'config', 'lookats.controllers', 'lookats.se
   })
   ;
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/auth/welcome');
 
 });

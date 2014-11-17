@@ -1,40 +1,42 @@
-<ion-content class="slide-under-header has-header">
-  <div class='register'>
-    <form novalidate="novalidate" ng-submit="doRegister()" type="POST" name="registerForm" >
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Email</span>
-          <input type="text" ng-model="register.email" name="register.email" ng-required="true" >          
-        </label>
-        
-        <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input type="text" ng-model="register.username" >
-        </label>      
+<ion-view title="Lookats">
+  <ion-content class="slide-under-header has-header">
+    <div class='register'>
+      <form novalidate="novalidate" ng-submit="doRegister()" type="POST" name="registerForm" >
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">Email</span>
+            <input type="text" ng-model="register.email" name="register.email" ng-required="true" >          
+          </label>
+          
+          <label class="item item-input">
+            <span class="input-label">Username</span>
+            <input type="text" ng-model="register.username" >
+          </label>      
 
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="register.password">
-        </label>      
+          <label class="item item-input">
+            <span class="input-label">Password</span>
+            <input type="password" ng-model="register.password">
+          </label>      
 
-        <label class="item item-input">
-          <span class="input-label">Full Name</span>
-          <input type="text" ng-model="register.fullname">
-        </label>      
+          <label class="item item-input">
+            <span class="input-label">Full Name</span>
+            <input type="text" ng-model="register.fullname">
+          </label>      
 
-        <label class="item item-input">
-          <span class="input-label">Phone Number (Optional)</span>
-          <input type="text" ng-model="register.phoneNumber">
-        </label>      
-        <div class="row">
-          <div class="col">
-            <button class="button button-block button-positive" ng-click="registerBack()">Back</button>
-          </div>
-          <div class="col">
-            <input type="submit" class="button button-block button-positive" value="sub"></input>
+          <label class="item item-input">
+            <span class="input-label">Phone Number (Optional)</span>
+            <input type="text" ng-model="register.phoneNumber">
+          </label>      
+          <div class="row">
+            <div class="col">
+              <button class="button button-block button-positive" ng-click="registerBack()">Back</button>
+            </div>
+            <div class="col">
+              <input type="submit" class="button button-block button-positive" value="sub"></input>
+            </div>
           </div>
         </div>
-      </div>
-    </form>
-  </div>
-</ion-content>
+      </form>
+    </div>
+  </ion-content>
+</ion-view>
