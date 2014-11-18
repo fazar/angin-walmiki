@@ -58,7 +58,7 @@ angular.module('Lookats', ['ionic', 'config', 'lookats.controllers', 'lookats.se
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/home/layout.html'
-  })  
+  })
   .state('tab.home', {
     url: '/home',
     views: {

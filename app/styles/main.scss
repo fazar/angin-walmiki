@@ -1,3 +1,6 @@
+$primary-color : #212121;
+$secondary-color : #bdbdbd;
+
 .slider {
   height: 100%;
 
@@ -47,4 +50,99 @@
   position: absolute;
   top: 2px;
   right: 20px
+}
+
+.timeline a.profile {
+  text-decoration: none;
+  color: $primary-color;
+}
+
+.timeline .post-time {
+  color: $secondary-color; 
+  font-size: 10px;
+}
+
+.timeline.list {
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+.looked {
+  position: absolute;
+  right: 26px;
+  top: 17px;
+
+  .count {
+    font-size: 14px;
+    color: $primary-color;
+  }
+
+  .looks {
+    color: $secondary-color; 
+    font-size: 10px;
+  }
+}
+
+
+
+.post {  
+  margin : 0;
+  position: relative;
+  display: block;
+
+  .post-title {
+    position: relative;
+    min-height:70px;
+    .post-avatar {    
+      top: 5px;      
+    }
+    .caption-wrapper {
+      margin-left:75px;
+      margin-top: 14px;
+
+      .username {
+        color: #212121;
+      }
+
+      .caption {
+        color: #424242;
+      }
+
+      .time {
+        display: block;
+        color: $secondary-color; 
+        font-size: 10px;
+      }
+    }
+  }
+
+  .post-avatar {    
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 15px;
+    left: 20px;
+  }
+
+  .post-image {
+    width: 100%;
+    vertical-align: middle;
+    display: block;
+  }
+
+  .item.tabs {
+    justify-content: flex-start;
+    flex-direction: row;  
+    border: none;
+    border-bottom: 1px solid #e4e4e4;  
+  }
+
+  .tab-item {
+    max-width: 70px;  
+    padding-left: 5px;
+  }
+}
+
+.timeline.card {
+  margin: 20px 0;
 }
