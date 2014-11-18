@@ -4,8 +4,8 @@
 var _ = require('lodash');
 var path = require('path');
 var cordovaCli = require('cordova');
-//var spawn = require('child_process').spawn;
-var spawn = require('win-spawn');
+var spawn = require('child_process').spawn;
+//var spawn = require('win-spawn');
 
 module.exports = function (grunt) {
 
@@ -160,7 +160,7 @@ module.exports = function (grunt) {
       }
     },
 
-    
+
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
       options: {
@@ -189,7 +189,7 @@ module.exports = function (grunt) {
         }
       }
     },
-    
+
 
     // Reads HTML for usemin blocks to enable smart builds that automatically
     // concat, minify and revision files. Creates configurations in memory so
