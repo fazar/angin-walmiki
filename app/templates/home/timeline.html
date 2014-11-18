@@ -37,18 +37,18 @@
         <div class="post">
           <img src="{{post.avatarUrl}}" class="post-avatar">
           <img src="{{post.photoUrl}}" class="post-image">
-          <div class="item tabs tabs-secondary tabs-icon-left">
+          <div class="post-options">
             <a class="tab-item" href="#">
               <i class="icon ion-thumbsup"></i>              
-              {{post.likeNumber}}
+              <span>{{post.likeNumber}}</span>
             </a>
             <a class="tab-item" href="#">
               <i class="icon ion-chatbox"></i>              
-              {{post.commentNumber}}
+              <span>{{post.commentNumber}}</span>
             </a>
             <a class="tab-item" href="#">
               <i class="icon ion-share"></i>
-              {{post.relookNumber}}
+              <span>{{post.relookNumber}}</span>
             </a>
           </div>
           <div class="post-title">            
