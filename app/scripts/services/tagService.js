@@ -9,15 +9,17 @@ angular.module('lookats.services')
     if(tagA < tagB) {return -1;}
     return 0;
   });
+    
   var searchTags = function(searchFilter) {
     console.log('Searching tags for ' + searchFilter);
     var deferred = $q.defer();
     var matches = [];
-    $http.post(window.lookats.baseUrl + 'api/register', $scope.register)
+    $http.get(window.lookats.baseUrl + 'api/tags/' + searchFilter)
         .success( function(data) {
+            console.log(matches);
             matches = data;
         })
-        .error( function() {});
+        .error( function(err) {console.log(err);});
     $timeout( function(){
       deferred.resolve( matches );
     }, 100);

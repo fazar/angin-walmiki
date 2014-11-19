@@ -32,6 +32,9 @@ angular.module('lookats.controllers')
               });
       };
   };
+    $scope.goToLogin = function() {
+		$state.go('auth.welcome');
+	};
 });
     
     
