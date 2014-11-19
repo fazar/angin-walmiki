@@ -17,7 +17,7 @@ angular.module('lookats.controllers')
 	];
 
 	$scope.user = userService.get();
-	
+	$scope.selectedTab = 'posts';
 	/*$scope.user = {
 		username : 'therealdisastr',
 		fullname : 'Dian Sastro',
@@ -54,5 +54,11 @@ angular.module('lookats.controllers')
 		$state.go('home.timeline');
 	};
 
+	$scope.changePostView = function(view) {
+		$scope.postView = view;
+	};
+
+	$scope.postView = 'thumbnail';
+	$scope.posts = userService.posts();
 
 });

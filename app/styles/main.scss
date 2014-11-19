@@ -83,9 +83,43 @@ $secondary-color : #bdbdbd;
   }
 }
 
+.post-view {
+  padding: 10px;  
+}
 
+.list-wrapper {
+  width: 100%;
+}
 
-.post {
+.thumbnail {  
+  display: inline-block;
+
+  > .post {
+      .post-image {
+        width:100%;
+      }
+
+      .post-avatar {
+        display:none;
+      }
+
+      .post-options {
+        display:none;
+      }
+
+      .post-title {
+        display:none;
+      }
+  }  
+}
+
+.thumbnail.list.card {
+  margin:0;
+  padding:5px;
+  width:33.33%;
+}
+
+.timeline > .post { 
   margin : 0;
   position: relative;
   display: block;
@@ -247,7 +281,7 @@ $secondary-color : #bdbdbd;
     color: #757575;
   }
 
-  > a:visited {
+  > a.tab-item-active {
     background-color: #424242;
   }
 }
