@@ -3,7 +3,7 @@ angular.module('lookats.services')
 		'use strict';
 		return {
 			get: function() {
-				var user = { username : '', fullname : '', followers : '', following : '' };
+				var user = {};// = { username : '', fullname : '', followers : '', following : '' };
 
 				$http.get(window.lookats.baseUrl + 'api/user')
 				.success( function( data ) {
@@ -11,6 +11,8 @@ angular.module('lookats.services')
 					user.fullname = data.fullname;
 					user.followers = data.followers;
 					user.following = data.following;
+					user.cover = 'http://photos-f.ak.instagram.com/hphotos-ak-xaf1/10723966_363684577131445_1986852005_n.jpg';
+					user.avatar = 'http://photos-d.ak.instagram.com/hphotos-ak-xpa1/923809_1566799786869227_1732260565_n.jpg';
 				})
 				.error( function() {
 					
