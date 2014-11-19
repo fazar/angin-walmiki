@@ -1,0 +1,12 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-dark">
+        <h1 class="title">New Contact</h1>
+        <button class="button button-clear button-primary" ng-click="pictOptions.hide()"><i class="icon ion-close-round"></i></button>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <div class="list">
+            <button class="button button-full button-positive" ng-click="takePicture('library')">Picture Library</button>
+            <button class="button button-full button-calm" ng-click="takePicture('camera')">Camera</button>
+        </div>
+    </ion-content>
+</ion-modal-view>

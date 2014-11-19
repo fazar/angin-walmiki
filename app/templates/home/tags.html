@@ -1,0 +1,16 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-subheader item-input-inset">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios7-search placeholder-icon"></i>
+            <input type="search" placeholder="Search" ng-change="search()" ng-model="data.search">
+        </label>
+        <button class="button button-clear" ng-click="tags.hide()">
+            Cancel
+        </button>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <li class="item" ng-repeat="tag in data.tags">{{tag.name}}</li>
+        </div>
+    </ion-content>
+</ion-modal-view>

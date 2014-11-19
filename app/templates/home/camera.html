@@ -1,6 +1,19 @@
 <ion-view title="Home">
-  <ion-content>
-  	<button ng-click="getPhoto()" class="button button-block button-primary">Take Photo</button>
-  	<img ng-src="{{lastPhoto}}" style="max-width: 100%">
-  </ion-content>
+    <ion-content>
+        <div class="list">
+          <label class="item item-input item-floating-label">
+            <span class="input-label">Caption</span>
+            <input type="text" placeholder="First Name">
+          </label>
+              <label class="item">
+           <img ng-src="{{lastPhoto}}" style="max-width: 100%">
+            </label>
+            <label class="item item-input">
+            <input type="text" ng-click="addTags()" placeholder="Tags">
+          </label>
+            <label class="item item-input">
+            <input type="text" placeholder="Tag Users">
+          </label>
+        </div>
+    </ion-content>
 </ion-view>

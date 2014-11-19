@@ -2,7 +2,7 @@
  	<button class="button icon ion-home"></button>
 	<h1 class="title">LOOKATS</h1>
   	<div class="buttons right-buttons">
-      <button class="button icon ion-gear-a">        
+      <button class="button icon ion-gear-a">
       </button>
     </div>
 </ion-nav-bar>
@@ -11,11 +11,11 @@
   <h1 class="title">Header Buttons</h1>
   <button class="button">Edit</button>
 </div> -->
-<ion-nav-view animation="slide-left-right"></ion-nav-view> 
+<ion-nav-view animation="slide-left-right"></ion-nav-view>
 
-<!-- 
-  Create tabs with an icon and label, using the tabs-positive style. 
-  Each tab's child <ion-nav-view> directive will have its own 
+<!--
+  Create tabs with an icon and label, using the tabs-positive style.
+  Each tab's child <ion-nav-view> directive will have its own
   navigation history that also transitions its views in and out.
 -->
 
@@ -30,16 +30,16 @@
     <ion-nav-view name="tab-discover"></ion-nav-view>
   </ion-tab>
 
-  <ion-tab title="Camera" icon="icon ion-camera" href="#/tab/camera">
+  <ion-tab title="Camera" icon="icon ion-camera" ng-click="retake()" href="#/tab/camera">
     <ion-nav-view name="tab-camera"></ion-nav-view>
   </ion-tab>
 
-  
+
 
   <ion-tab title="Notifications" icon="icon ion-heart" href="#/tab/friends">
     <ion-nav-view name="tab-friends"></ion-nav-view>
   </ion-tab>
-  
+
   <ion-tab title="Account" icon="icon ion-gear-b" href="#/tab/account">
     <ion-nav-view name="tab-account"></ion-nav-view>
   </ion-tab>

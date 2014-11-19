@@ -9,7 +9,7 @@ $secondary-color : #bdbdbd;
     color: #000;
     background-color: #fff;
     text-align: center;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
   }
 }
@@ -58,7 +58,7 @@ $secondary-color : #bdbdbd;
 }
 
 .timeline .post-time {
-  color: $secondary-color; 
+  color: $secondary-color;
   font-size: 10px;
 }
 
@@ -78,14 +78,14 @@ $secondary-color : #bdbdbd;
   }
 
   .looks {
-    color: $secondary-color; 
+    color: $secondary-color;
     font-size: 10px;
   }
 }
 
 
 
-.post {  
+/* .post {
   margin : 0;
   position: relative;
   display: block;
@@ -93,8 +93,8 @@ $secondary-color : #bdbdbd;
   .post-title {
     position: relative;
     min-height:70px;
-    .post-avatar {    
-      top: 5px;      
+    .post-avatar {
+      top: 5px;
     }
     .caption-wrapper {
       margin-left:75px;
@@ -110,13 +110,13 @@ $secondary-color : #bdbdbd;
 
       .time {
         display: block;
-        color: $secondary-color; 
+        color: $secondary-color;
         font-size: 10px;
       }
     }
   }
 
-  .post-avatar {    
+  .post-avatar {
     width: 40px;
     height: 40px;
     position: absolute;
@@ -130,17 +130,17 @@ $secondary-color : #bdbdbd;
     display: block;
   }
 
-  .item.tabs {    
+  .item.tabs {
     justify-content: flex-start;
     -webkit-justify-content: flex-start;
-    flex-direction: row;  
-    -webkit-flex-direction: row;    
+    flex-direction: row;
+    -webkit-flex-direction: row;
     border: none;
-    border-bottom: 1px solid #e4e4e4;  
+    border-bottom: 1px solid #e4e4e4;
   }
 
   .tab-item {
-    max-width: 70px;  
+    max-width: 70px;
     padding-left: 9px;
     font-size:12px;
   }
@@ -151,7 +151,7 @@ $secondary-color : #bdbdbd;
     padding-top: 12px;
     font-size: 16px;
 
-    a, i {      
+    a, i {
       color: #7a7a7a;
       display: inline-block;
     }
@@ -162,13 +162,13 @@ $secondary-color : #bdbdbd;
         vertical-align: middle;
         display: inline-block;
         line-height: 1;
-      }      
+      }
     }
 
     i {
       vertical-align: middle;
       display: inline-block;
-      line-height: 1;      
+      line-height: 1;
     }
 
     .icon:before {
@@ -179,4 +179,4 @@ $secondary-color : #bdbdbd;
 
 .timeline.card {
   margin: 20px 0;
-}
+} */
