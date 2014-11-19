@@ -1,21 +1,35 @@
-<ion-header-bar align-title="left" class="bar-light">
-  <h1 class="title">Profile</h1>
-</ion-header-bar>
-
-  <!-- <div class="pane">
-      <span>Traveling</span>
-  </div> -->
-  <ion-pane>
-    <ion-content>
-      <div>
-        <h3>username : {{user.username}}</h3>
-        <h4>fullname : {{user.fullname}}</h4>
-        <h4>followers : {{user.followers}}</h4>
-        <h4>following : {{user.following}}</h4>
-        <!-- <img src="{{user.avatarUrl}}" /> -->
-        <h5>{{user.bio}}</h5>
+<ion-view>  
+  <ion-content>      
+    <div class="cover-profile" style="background-image:url('{{user.cover}}')">
+      <div class="avatar">
+          <img src="{{user.avatar}}"></img>
+          <span class="fullname">{{user.fullname}}</span>
+          <span class="followers">{{user.followers}} followers</span>,
+          <span class="following">{{user.following}} following</span>
       </div>
-    </ion-content>
-    
-  </ion-pane>
+    </div>
+    <div class="profile-tabs item tabs tabs-secondary tabs-icon-left">
+      <a class="tab-item" href="#">        
+        <span class="first-title">ALL MY</span> 
+        <span class="second-title">POSTS</span>
+      </a>
+      <a class="tab-item" ui-sref="home.liked">        
+        <span class="first-title">THAT I'VE</span> 
+        <span class="second-title">LIKED</span>        
+      </a>
+      <a class="tab-item" href="#">        
+        <span class="first-title">ALL MY</span> 
+        <span class="second-title">WISHES</span>
+      </a>
+      <a class="tab-item" href="#">        
+        <span class="first-title">ALL MY</span> 
+        <span class="second-title">PHOTOS</span>         
+      </a>      
+    </div>
+    <div class="post-view">
+      <span><a ui-sref="">satu</a></span> | </span><a ui-sref="">dua</a></span>
+    </div>
+      
+  </ion-content>
+</ion-view>
 

@@ -24,6 +24,10 @@ angular.module('lookats.controllers')
 		$ionicNavBarDelegate.back();
 	};
 
+	$scope.goToLogin = function() {
+		$state.go('auth.login');
+	};
+
 	var login = function(username, password, isFromRegister) {
 		var userData = {username : username, password : password};
 		$http.post(window.lookats.baseUrl + 'api/authenticate', userData)

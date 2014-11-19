@@ -78,10 +78,14 @@ angular.module('Lookats', ['ionic', 'config', 'lookats.controllers', 'lookats.se
       }
     }
   })
-  .state('profile', {
+  .state('tab.profile', {
     url:'/profile',
-    templateUrl: 'templates/profile/index.html',
-    controller: 'profileCtrl'
+    views: {
+      'tab-home': {
+        templateUrl: 'templates/profile/index.html',
+        controller: 'profileCtrl'
+      }
+    }
   })
   .state('interest', {
     url:'/interest',
