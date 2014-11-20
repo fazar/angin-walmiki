@@ -1,19 +1,26 @@
 <ion-view title="Home">
     <ion-content>
         <div class="list">
-          <label class="item item-input item-floating-label">
-            <span class="input-label">Caption</span>
-            <input type="text" placeholder="First Name">
-          </label>
-              <label class="item">
-           <img ng-src="{{lastPhoto}}" style="max-width: 100%">
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Caption</span>
+                <input type="text" ng-model="post.title" name="post.title" placeholder="Caption">
+            </label>
+            <label class="item">
+                <img ng-src="{{lastPhoto}}" style="max-width: 100%">
             </label>
             <label class="item item-input">
-            <input type="text" ng-click="addTags()" placeholder="Tags">
-          </label>
+                <!--input type="text" ng-model="post.tags" name="post.tags" placeholder="Tag Values"-->
+                <input type="text" ng-model="post.tagNames" name="post.tagNames" ng-click="addTags()" placeholder="Tags">
+            </label>
+            <!--label class="item item-input">
+                <input type="text" ng-model="post.taggedUsers" name="post.taggedUsers" placeholder="Tagged User Values">
+            </label-->
             <label class="item item-input">
-            <input type="text" placeholder="Tag Users">
-          </label>
+                <input type="text" ng-model="post.taggedUserNames" name="post.taggedUserNames" ng-click="addUsers()" placeholder="Users">
+            </label>
+                <label class="item">
+            <button class="button button-full button-positive" ng-click="send()">Post It</button>
+            </label>
         </div>
     </ion-content>
 </ion-view>

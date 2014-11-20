@@ -1,5 +1,8 @@
 'use strict';
 angular.module('lookats.controllers')
+.config(function($compileProvider){
+  $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
+})
 .controller('tabCtrl', function($scope,  Camera, $ionicModal, tagService, $state) {
   $scope.retake = function(){
 //    e.preventDefault();
@@ -20,12 +23,13 @@ angular.module('lookats.controllers')
                 targetHeight: 320,
                 saveToPhotoAlbum: false,
                 sourceType : sourceType,
-                destinationType: navigator.camera.DestinationType.DATA_URL
+                destinationType: navigator.camera.DestinationType.FILE_URI
               };
               // passing options in as a parameter
-              Camera.getPicture(options).then(function(imageData) {
-                $scope.lastPhoto = 'data:image/jpeg;base64,' + imageData;
-                $state.go('tab.camera');
+              Camera.getPicture(options).then(function(imageURI) {
+                //$scope.lastPhoto = 'data:image/jpeg;base64,' + imageData;
+                $scope.lastPhoto = imageURI;
+                  $state.go('tab.camera');
                 
               },function(err) {
                 console.err(err);
