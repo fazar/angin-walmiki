@@ -1,7 +1,7 @@
 angular.module('lookats.controllers')
 
 .controller('profileCtrl', function($scope, $stateParams, $ionicNavBarDelegate, $state,
-									userService) {
+									userService, $ionicLoading) {
 	'use strict';
 	var interests = ['beach', 'party', 'formal party', 'travel', 'carnaval', 'sports', 'football', 'library', 'music', 'jazz', 'movie', 'film', 'car', 'girlie','mainly'];
 	var interestsChosen = [];
@@ -18,6 +18,7 @@ angular.module('lookats.controllers')
 
 	$scope.user = userService.get();
 	$scope.selectedTab = 'posts';
+	$scope.posts = userService.posts();
 	/*$scope.user = {
 		username : 'therealdisastr',
 		fullname : 'Dian Sastro',
@@ -54,11 +55,21 @@ angular.module('lookats.controllers')
 		$state.go('home.timeline');
 	};
 
-	$scope.changePostView = function(view) {
-		$scope.postView = view;
-	};
-
 	$scope.postView = 'thumbnail';
-	$scope.posts = userService.posts();
+	$scope.showPostView = false;
+	$scope.changePostView = function(view) {
+		if($scope.postView !== view) {
+			$ionicLoading.show({
+				template: 'loading'
+			});
+			
+			$scope.postView = view;
+			setTimeout(function(){
+				$ionicLoading.hide();
+			}, 1000);
+		}
+	};
+	
+	
 
 });
