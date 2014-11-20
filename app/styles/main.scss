@@ -115,7 +115,7 @@ $secondary-color : #bdbdbd;
 
 .thumbnail.list.card {
   margin:0;
-  padding:5px;
+  padding: 0 5px 5px 5px;
   width:33.33%;
 }
 
@@ -288,8 +288,22 @@ $secondary-color : #bdbdbd;
 
 .post-view {
   text-align: center;
+
+  span {
+    border: 1px solid #e0e0e0;
+    height: 15px;
+    display: inline-block;
+  }
+
+  i {
+    font-size: 18px;
+  }
+
+  a.active > i {
+    color: #bdbdbd;
+  }
 }
 
 .timeline.card {
-  margin: 20px 0;
+  margin: 0px 0;
 }
