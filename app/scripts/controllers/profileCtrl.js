@@ -59,9 +59,7 @@ angular.module('lookats.controllers')
 	$scope.showPostView = false;
 	$scope.changePostView = function(view) {
 		if($scope.postView !== view) {
-			$ionicLoading.show({
-				template: 'loading'
-			});
+			$ionicLoading.show();
 			
 			$scope.postView = view;
 			setTimeout(function(){

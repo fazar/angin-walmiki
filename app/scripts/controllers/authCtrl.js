@@ -1,10 +1,44 @@
 angular.module('lookats.controllers')
-.controller('authCtrl', function($scope, $stateParams, $ionicNavBarDelegate, $state, $location, $http, $window, $rootScope, $ionicPopup) {
+.controller('authCtrl', function($scope, $stateParams, $ionicNavBarDelegate, $state, $location, $http, $window, $rootScope, $ionicPopup, $timeout) {
 	'use strict';
 	$scope.register = {};
 	$scope.login = {};
+	$scope.validation = {
+		isFailed : false,
+		message : ''
+	};
 
-	$scope.doRegister = function() {
+	/*$scope.$watch('registerForm', function(registerForm){		
+		console.log(registerForm);
+	});*/
+
+	$scope.setFormScope= function(scope){
+   		this.formScope = scope;
+	};
+
+	$scope.doRegister = function() {		
+		if(this.formScope.registerForm.$invalid) {
+			$scope.validation.isFailed = true;
+			if(this.formScope.registerForm.email.$error.required) {
+				$scope.validation.message = "Please enter your email address";
+			} 
+			else if(this.formScope.registerForm.email.$error.email) {
+				$scope.validation.message = "Format your email";
+			}
+			else if(this.formScope.registerForm.username.$error.required) {
+				$scope.validation.message = "Please enter your username";
+			}
+			else if(this.formScope.registerForm.password.$error.required) {
+				$scope.validation.message = "Please enter your password";
+			}
+			else if(this.formScope.registerForm.fullname.$error.required) {
+				$scope.validation.message = "Please enter your full name";
+			}
+
+			$timeout(resetValidation, 1000);	
+			return;
+		}		
+
 		$http.post(window.lookats.baseUrl + 'api/register', $scope.register)
 			.success( function() {
 				login($scope.register.username, $scope.register.password, true);
@@ -51,4 +85,9 @@ angular.module('lookats.controllers')
 				//$scope.loginMessage = 'Error: Invalid user or password';
 			});
 	};
+
+	var resetValidation = function() {
+		$scope.validation.isFailed = false;
+		$scope.validation.message = '';		
+	}
 });
