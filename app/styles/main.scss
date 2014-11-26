@@ -307,3 +307,15 @@ $secondary-color : #bdbdbd;
 .timeline.card {
   margin: 0px 0;
 }
+
+.bar.bar-loading {
+  display: block;
+  height: 24px;
+  position: absolute !important;
+  top: 0 !important;
+  width: 100% !important;
+  text-align: center;
+  padding: 0;
+  line-height: 24px;
+  -webkit-transition: 1000ms all;
+}

@@ -37,14 +37,15 @@
       pulling-text="Pull to refresh..."
       on-refresh="doRefresh()">
     </ion-refresher>
-    <div class="list card timeline" ng-repeat="post in posts">
+    <div class="list card timeline" ng-repeat="post in posts track by $index">
+
         <div class="post">
-          <img ng-src="{{post.avatar}}" class="post-avatar">
-          <img ng-src="{{post.photo}}" class="post-image">
+          <img ng-src="{{post.author.avatar}}" class="post-avatar">
+          <img ng-src="{{post.image.url}}" class="post-image" />          
           <div class="post-options">
             <a class="tab-item" href="#">
               <i class="icon ion-thumbsup"></i>              
-              <span>{{post.likeNumber}}</span>
+              <span>{{post.likedNumber}}</span>
             </a>
             <a class="tab-item" href="#">
               <i class="icon ion-chatbox"></i>              
@@ -57,11 +58,11 @@
           </div>
           <div class="post-title">            
             <div class="caption-wrapper">
-              <span class="username"><a ui-sref="tab.profile" class="profile">{{post.username}}</a> :</span> 
-              <span class="caption">Nikmati indahnya hidup ini bersama dian sastro</span>
+              <span class="username"><a ui-sref="tab.profile" class="profile">{{post.author.username}}</a> :</span> 
+              <span class="caption">{{post.title}}</span>
               <span class="time">2 Hours Ago</span>
             </div>
-            <img ng-src="{{post.avatar}}" class="post-avatar">
+            <img ng-src="{{post.author.avatar}}" class="post-avatar">
           </div>
         </div>
 

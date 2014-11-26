@@ -73,14 +73,14 @@ angular.module('lookats.controllers')
     options.chunkedMode = false;
     options.headers = {'Authorization' : authorization};
     var ft = new FileTransfer();
-    ft.upload(myImg, encodeURI(window.lookats.baseUrl + 'api/image/'),function(data){
+    ft.upload(myImg, encodeURI(window.lookats.baseUrl + 'api/image/'),function(data){      
       var postData = {
         "title" : $scope.post.title,
-        "image" : data._id,
+        "image" : data.response.substring(1, data.response.length-1), 
         "tags" : $scope.post.tags,
         "taggedUsers" : $scope.post.taggedUsers
-      }
-      $http.post(window.lookats.baseUrl + 'api/post/',postData)
+		}
+     $http.post(window.lookats.baseUrl + 'api/post/',postData)
       .success(function(){
         $state.go('tab.home');
       });

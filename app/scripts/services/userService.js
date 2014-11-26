@@ -1,5 +1,5 @@
 angular.module('lookats.services')
-	.factory('userService', ['$rootScope', '$state', '$window', '$http', function($rootScope, $state, $window, $http) {
+	.factory('userService', function($rootScope, $state, $window, $http, $q) {
 		'use strict';
 		return {
 			get: function() {
@@ -20,6 +20,41 @@ angular.module('lookats.services')
 
 				return user;
 			},
+			getTimeline: function () {
+				var deferrer = $q.defer();
+				
+				$http.get(window.lookats.baseUrl + 'api/user/timeline')
+				.success( function( data ) {
+					var posts = [];
+					var post = {};
+					//console.log(data);
+					//posts = data;
+					//we are using foreach manually instead of assign it automatically.
+					data.forEach(function(item){
+						post.id = item._id;
+						post.title = item.title;
+						post.image = {
+							id : item.image,
+							url: window.lookats.baseUrl + 'api/image/' + item.image
+						};
+						post.author = {
+							username: item.author.username,
+							fullname: item.author.fullname,
+							avatar: item.author.avatar
+						};
+						post.commentNumber = item.commentNumber;
+						post.likedNumber = item.likedNumber;
+						post.repostedNumber = item.repostedNumber;
+						posts.push(post);
+					});
+
+					deferrer.resolve(posts);
+				}).error( function() {
+					return 'error on get timeline';
+				});
+
+				return deferrer.promise;
+			},
 			test: function() {
 				return {
 					username : 'therealdisastr',
@@ -32,39 +67,51 @@ angular.module('lookats.services')
 				};
 			},
 			posts: function() {
-				//var post = {};
-				return [
+				var deferrer = $q.defer();
+				var post = [
 					{
-						photo: 'http://photos-b.ak.instagram.com/hphotos-ak-xfa1/10706903_707508032676801_696532404_n.jpg',
+						image: {
+							url:'http://photos-b.ak.instagram.com/hphotos-ak-xfa1/10706903_707508032676801_696532404_n.jpg'
+						},
 						avatar: 'http://photos-d.ak.instagram.com/hphotos-ak-xpa1/923809_1566799786869227_1732260565_n.jpg',
 						username: 'diansastro',
-						likeNumber: 200,
+						likedNumber: 200,
 						commentNumber: 10,
-						relookNumber: 50
+						repostNumber: 50
 					},
 					{
-						photo: 'http://photos-f.ak.instagram.com/hphotos-ak-xaf1/10723966_363684577131445_1986852005_n.jpg',
+						image: {
+							url: 'http://photos-f.ak.instagram.com/hphotos-ak-xaf1/10723966_363684577131445_1986852005_n.jpg'
+						},
 						avatar: 'http://photos-d.ak.instagram.com/hphotos-ak-xpa1/923809_1566799786869227_1732260565_n.jpg',
-						likeNumber: 200,
+						likedNumber: 200,
 						commentNumber: 10,
-						relookNumber: 50
+						repostNumber: 50
 					},
 					{
-						photo: 'http://photos-f.ak.instagram.com/hphotos-ak-xaf1/10748280_534094283392341_737416944_n.jpg',
+						image: {
+							url: 'http://photos-f.ak.instagram.com/hphotos-ak-xaf1/10748280_534094283392341_737416944_n.jpg'
+						},
 						avatar: 'http://photos-d.ak.instagram.com/hphotos-ak-xpa1/923809_1566799786869227_1732260565_n.jpg',
-						likeNumber: 200,
+						likedNumber: 200,
 						commentNumber: 10,
-						relookNumber: 50
+						repostNumber: 50
 					},
 					{
-						photo: 'http://photos-e.ak.instagram.com/hphotos-ak-xaf1/10802508_1536357399940740_754952390_n.jpg',
+						image: {
+							url: 'http://photos-e.ak.instagram.com/hphotos-ak-xaf1/10802508_1536357399940740_754952390_n.jpg'
+						},
 						avatar: 'http://photos-d.ak.instagram.com/hphotos-ak-xpa1/923809_1566799786869227_1732260565_n.jpg',
-						likeNumber: 200,
+						likedNumber: 200,
 						commentNumber: 10,
-						relookNumber: 50
+						repostNumber: 50
 					}
 				];
+
+				deferrer.resolve(post);
+
+				return deferrer.promise;
 			}
 		};
-	}])
+	})
 	;
