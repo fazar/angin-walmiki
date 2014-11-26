@@ -7,11 +7,11 @@ angular.module('lookats.controllers')
 	'use strict';
 	
 	userService.getTimeline().then(function(data){
-		
+		//console.log(data);
 		$timeout(function() {
 			$scope.$apply(function(){
 				$scope.posts = data;
-				//console.log($scope.posts);
+				console.log($scope.posts);
 			});
 		});
 
@@ -26,9 +26,10 @@ angular.module('lookats.controllers')
 				url:'http://photos-b.ak.instagram.com/hphotos-ak-xfa1/10706903_707508032676801_696532404_n.jpg'
 			},
 			author: {
-				avatar: 'http://photos-d.ak.instagram.com/hphotos-ak-xpa1/923809_1566799786869227_1732260565_n.jpg',
+				id: '54741227fb6a8b0420ac8e21',
 				username: 'therealdisastr',
-				fullname: 'Diandra Sastrowardoyo'
+				fullname: 'Diandra Sastrowardoyo',
+				avatar: 'http://photos-d.ak.instagram.com/hphotos-ak-xpa1/923809_1566799786869227_1732260565_n.jpg'
 			},
 			likedNumber: 200,
 			commentNumber: 10,

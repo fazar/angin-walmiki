@@ -68,7 +68,7 @@ angular.module('lookats.controllers')
   $scope.send = function(){
     var myImg = $scope.lastPhoto;
     var options = new FileUploadOptions();
-    var authorization = 'Bearer ' + $window.sessionStorage.token;
+    var authorization = 'Bearer ' + $window.localStorage.token;
     options.fileKey="image";
     options.chunkedMode = false;
     options.headers = {'Authorization' : authorization};

@@ -79,7 +79,7 @@ angular.module('Lookats', ['ionic', 'config', 'lookats.controllers', 'lookats.se
     }
   })
   .state('tab.profile', {
-    url:'/profile',
+    url:'/profile/:id',
     views: {
       'tab-home': {
         templateUrl: 'templates/profile/index.html',

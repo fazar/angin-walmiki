@@ -16,9 +16,18 @@ angular.module('lookats.controllers')
 		{username : 'putu', id:'4'}
 	];
 
-	$scope.user = userService.get();
-	$scope.selectedTab = 'posts';
-	$scope.posts = userService.posts();
+	userService.get($stateParams.id).then(function(data) {		
+		console.log(data);
+		$scope.user = data;
+	});
+
+	$scope.selectedTab = 'posts';	
+	userService.posts($stateParams.id).then(function(data){
+
+		$scope.posts = data;
+	});
+
+	//alert($stateParams.id);
 	/*$scope.user = {
 		username : 'therealdisastr',
 		fullname : 'Dian Sastro',
@@ -55,6 +64,16 @@ angular.module('lookats.controllers')
 		$state.go('home.timeline');
 	};
 
+	$scope.follow = function(followingId) {
+		var result = userService.doFollow(followingId)
+			.success( function( data ) {
+				console.log(data);
+			})
+			.error( function( data ) {
+				console.log(data);
+			});
+	};
+
 	$scope.postView = 'thumbnail';
 	$scope.showPostView = false;
 	$scope.changePostView = function(view) {
@@ -67,7 +86,4 @@ angular.module('lookats.controllers')
 			}, 1000);
 		}
 	};
-	
-	
-
 });

@@ -45,7 +45,7 @@ angular.module('lookats.controllers')
 			})
 			.error( function() {
 				alert('register gagal');
-				delete $window.sessionStorage.token;
+				delete $window.localStorage.token;
 				//$scope.loginMessage = 'Error: Invalid user or password';
 			});
 	};
@@ -66,7 +66,7 @@ angular.module('lookats.controllers')
 		var userData = {username : username, password : password};
 		$http.post(window.lookats.baseUrl + 'api/authenticate', userData)
 			.success( function( data ) {
-				$window.sessionStorage.token = data.token;
+				$window.localStorage.token = data.token;
 				if (isFromRegister) {
 					$state.go('interest');
 				} else {
@@ -76,7 +76,7 @@ angular.module('lookats.controllers')
 				console.log(data.token);
 			})
 			.error( function() {
-				delete $window.sessionStorage.token;
+				delete $window.localStorage.token;
 				$ionicPopup.alert({
 					title: 'Error',
 					template: 'Invalid user or password'
