@@ -1,22 +1,31 @@
 <ion-view title="Lookats">
-  <ion-content class="has-header">  
-    <form novalidate="novalidate" ng-submit="doLogin()" type="POST" name="loginForm" >
-      <label class="item item-input">
-        <span class="input-label">Username</span>
-        <input type="text" ng-model="login.username" name="login.username">
-      </label>
-      <label class="item item-input">
-        <span class="input-label">Password</span>
-        <input type="password" ng-model="login.password" name="login.password">
-      </label>
-      <label class="item item-input">
-        <button type="submit" class="button button-block button-positive">
-        Sign In
-        </button>
-      </label>   
+  <ion-content>
+    <div class="cover-login">
+
+    </div>  
+    <form novalidate="novalidate" type="POST" name="loginForm" >
+      <div class="list login-form">
+        <label class="item item-input">
+          <span class="input-label ion-person"></span>
+          <input type="text" ng-model="login.username" name="login.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label ion-key"></span>
+          <input type="password" ng-model="login.password" name="login.password">
+        </label>
+      </div>
       <div class='forgot-password-link'>
-        <a ui-sref="auth.forgot-password">Forgot Password</a>
+        <a ui-sref="auth.forgot-password">Forgot Your Password ?</a>
       </div>
     </form>  
   </ion-content>
 </ion-view>
+<ion-footer-bar align-title="left" class="bar-dark">
+  <div class="buttons">
+    <button class="button button-icon icon ion-arrow-left-c" ng-click="goToWelcome()"></button>
+  </div>
+  <h1 class="title"></h1>
+  <div class="buttons" ng-click="">   
+    <button class="button button-icon icon ion-arrow-right-c" ng-click="doLogin()" side="right"></button>
+  </div>
+</ion-footer-bar>

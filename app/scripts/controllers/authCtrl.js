@@ -50,16 +50,20 @@ angular.module('lookats.controllers')
 			});
 	};
 
-	$scope.doLogin = function(){
+	$scope.doLogin = function() {
 		login($scope.login.username, $scope.login.password, false);
 	};
 
-	$scope.registerBack = function(){
+	$scope.registerBack = function(){		
 		$ionicNavBarDelegate.back();
 	};
 
 	$scope.goToLogin = function() {
 		$state.go('auth.login');
+	};
+
+	$scope.goToWelcome = function() {
+		$state.go('auth.welcome');
 	};
 
 	var login = function(username, password, isFromRegister) {

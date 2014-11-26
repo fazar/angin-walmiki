@@ -65,13 +65,13 @@ angular.module('lookats.controllers')
 	};
 
 	$scope.follow = function(followingId) {
-		var result = userService.doFollow(followingId)
-			.success( function( data ) {
-				console.log(data);
-			})
-			.error( function( data ) {
-				console.log(data);
-			});
+		userService.doFollow(followingId)
+		.success( function( data ) {
+			console.log(data);
+		})
+		.error( function( data ) {
+			console.log(data);
+		});
 	};
 
 	$scope.postView = 'thumbnail';

@@ -37,7 +37,7 @@ angular.module('lookats.controllers')
     $scope.data.tags = [];
   };
   $scope.addTagsResult = function(){
-    if($scope.data.search == ''){return;}
+    if($scope.data.search === ''){return;}
     $scope.post.tags.push($scope.data.search);
     $scope.post.tagNamesArr.push($scope.data.search);
     $scope.post.tagNames =   $scope.post.tagNamesArr.join();
@@ -69,21 +69,22 @@ angular.module('lookats.controllers')
     var myImg = $scope.lastPhoto;
     var options = new FileUploadOptions();
     var authorization = 'Bearer ' + $window.localStorage.token;
-    options.fileKey="image";
+    options.fileKey = 'image';
     options.chunkedMode = false;
     options.headers = {'Authorization' : authorization};
     var ft = new FileTransfer();
     ft.upload(myImg, encodeURI(window.lookats.baseUrl + 'api/image/'),function(data){      
       var postData = {
-        "title" : $scope.post.title,
-        "image" : data.response.substring(1, data.response.length-1), 
-        "tags" : $scope.post.tags,
-        "taggedUsers" : $scope.post.taggedUsers
-		}
-     $http.post(window.lookats.baseUrl + 'api/post/',postData)
+        'title' : $scope.post.title,
+        'image' : data.response.substring(1, data.response.length-1), 
+        'tags' : $scope.post.tags,
+        'taggedUsers' : $scope.post.taggedUsers
+		};
+    
+    $http.post(window.lookats.baseUrl + 'api/post/',postData)
       .success(function(){
         $state.go('tab.home');
       });
     }, function(err){ console.log(err);}, options);
-  }
+  };
 });

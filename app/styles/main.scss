@@ -319,3 +319,50 @@ $secondary-color : #bdbdbd;
   line-height: 24px;
   -webkit-transition: 1000ms all;
 }
+
+.cover-login {
+  background: url('../images/cover-login.jpg');
+  width: 100%;
+  height: 270px;
+  background-size: cover;
+  background-position: center center;
+}
+
+.login-form {
+  span.input-label {
+    font-size: 30px;    
+    width: 15%;
+    text-align: center;
+    padding: 7px 66px 7px 0px;
+  }
+}
+
+.forgot-password-link {
+  text-align: center;
+}
+
+.ion-key:before {
+  -ms-transform: rotate(223deg);
+  -webkit-transform: rotate(223deg);
+  transform: rotate(223deg);    
+  font-size:32px;
+}
+
+/*
+.register {
+  > .login-form {
+    label.item-input:nth-child(3) {
+      input {
+        margin-left: 12px;
+      }
+      
+    }
+
+    label.item-input:nth-child(5) {
+      input {
+        margin-left: 12px;
+      }
+      
+    }
+  }
+}*/

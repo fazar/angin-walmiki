@@ -110,7 +110,7 @@ angular.module('lookats.services')
 					interest : ['travel', 'philosophy']
 				};
 			},
-			fakePosts: function(id) {
+			fakePosts: function() {
 				var deferrer = $q.defer();
 				var post = [
 					{
