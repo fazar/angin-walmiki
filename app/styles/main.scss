@@ -84,14 +84,14 @@ $secondary-color : #bdbdbd;
 }
 
 .post-view {
-  padding: 10px;  
+  padding: 10px;
 }
 
 .list-wrapper {
   width: 100%;
 }
 
-.thumbnail {  
+.thumbnail {
   display: inline-block;
 
   > .post {
@@ -110,7 +110,7 @@ $secondary-color : #bdbdbd;
       .post-title {
         display:none;
       }
-  }  
+  }
 }
 
 .thumbnail.list.card {
@@ -119,7 +119,7 @@ $secondary-color : #bdbdbd;
   width:33.33%;
 }
 
-.timeline > .post { 
+.timeline > .post {
   margin : 0;
   position: relative;
   display: block;
@@ -211,7 +211,7 @@ $secondary-color : #bdbdbd;
   }
 }
 
-.cover-profile {  
+.cover-profile {
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -236,7 +236,7 @@ $secondary-color : #bdbdbd;
       display: block;
       font-size: 20px;
       font-style: normal;
-    } 
+    }
 
     span {
       color: #ffffff;
@@ -264,7 +264,7 @@ $secondary-color : #bdbdbd;
     height: 20px;
     padding: 0;
     margin: 0;
-    line-height: 1; 
+    line-height: 1;
     font-size: 13px;
     text-align: left;
   }
@@ -306,4 +306,36 @@ $secondary-color : #bdbdbd;
 
 .timeline.card {
   margin: 0px 0;
+}
+
+.post-image-holder{
+  position:relative;
+  width:300px;
+  height:300px;
+  padding:0;
+}
+.tag-brand{
+  position:absolute;
+  z-index:2;
+}
+.tag-brand.edit{
+  background-color:red;
+}
+.post-image-layer{
+  width:300px;
+  height:300px;
+  position:absolute;
+  z-index:1;
+}
+.post-image{
+  width:100%;
+}
+.cropArea {
+      background: #E4E4E4;
+      overflow: hidden;
+      width:100%;
+      height:100%;
+    }
+.cropimage .scroll {
+  height: 100%;
 }

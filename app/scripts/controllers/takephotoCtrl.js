@@ -1,9 +1,8 @@
 'use strict';
 angular.module('lookats.controllers')
-.config(function($compileProvider){
-  $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
-})
-.controller('takephotoCtrl', function($scope, Camera, $ionicModal, tagService, $http, $window, $state) {
+.controller('takephotoCtrl', function($scope, Camera, $ionicModal, tagService, $http, $window, $state, $rootScope) {
+  $scope.myCroppedImage = $rootScope.myCroppedImage;
+  console.log($scope.myCroppedImage);
   $ionicModal.fromTemplateUrl('templates/home/tags.html', {
     scope: $scope
   }).then(function(modal) {
@@ -12,7 +11,7 @@ angular.module('lookats.controllers')
   $scope.addTags = function(){
     $scope.tags.show();
   };
-  $scope.data = { 'tags' : [], 'search' : '', 'users':[], 'searchUser' : '' };
+  $scope.data = { 'tags' : [], 'search' : '', 'users':[], 'searchUser' : '', brands:[] };
   $scope.post = {
     'title' : '',
     'tags':[],
@@ -20,7 +19,8 @@ angular.module('lookats.controllers')
     'tagNamesArr':[],
     'taggedUsers' : [],
     'taggedUserNames' : '',
-    'taggedUserNamesArr' : []
+    'taggedUserNamesArr' : [],
+    'brands' : []
   };
   $scope.search = function() {
     tagService.searchTags($scope.data.search).then(
@@ -86,4 +86,88 @@ angular.module('lookats.controllers')
       });
     }, function(err){ console.log(err);}, options);
   }
+  $scope.imageTap = function(e){
+    console.log(e);
+    $scope.currentBrandId = $scope.post.brands.length;
+    //coordinate calibration;
+    var displayWidth = e.srcElement.clientWidth;
+    var brand = {
+      coordinate : [e.offsetX, e.offsetY],
+      name : 'local brand',
+      brand : 'default',
+      posId : $scope.currentBrandId,
+      show : false
+    }
+    $scope.post.brands.push(brand);
+    $scope.post.brands[brand.posId].show = true;
+    $scope.brand.show();
+  };
+   $ionicModal.fromTemplateUrl('templates/home/brand.html', {
+    scope: $scope
+  }).then(function(modal) {
+      $scope.brand = modal;
+  });
+  // Execute action on hide modal
+  $scope.$on('modal.hidden', function(modal) {
+    if($scope.post.brands[$scope.currentBrandId].brand == 'default'){
+      $scope.post.brands.pop();
+    }
+  });
+  $scope.searchBrands = function() {
+    tagService.searchBrands($scope.data.searchBrand).then(
+      function(matches) {
+        $scope.data.brands = matches;
+      }
+    );
+  };
+  $scope.addBrand = function(brand){
+    var brand = {
+      coordinate : $scope.post.brands[$scope.currentBrandId].coordinate,
+      name : brand.name,
+      brand : brand._id,
+      posId : $scope.currentBrandId,
+      show : false
+    }
+    $scope.post.brands.pop();
+    $scope.post.brands.push(brand);
+    $scope.post.brands[$scope.currentBrandId].show = true;
+    $scope.brand.hide();
+    $scope.data.searchBrand = '';
+  }
+  $scope.resolveBrand = function(){
+     var brand = {
+      coordinate : $scope.post.brands[$scope.currentBrandId].coordinate,
+      name : $scope.data.searchBrand,
+      brand : $scope.data.searchBrand,
+      posId : $scope.currentBrandId,
+      editClass : 'idle',
+      show : false
+    }
+    $scope.post.brands.pop();
+    $scope.post.brands.push(brand);
+    $scope.post.brands[$scope.currentBrandId].show = true;
+    $scope.brand.hide();
+    $scope.data.searchBrand = '';
+  }
+  $scope.currentEdit = -1;
+  $scope.editBrand = function(id){
+    console.log('masuk gak ya');
+    $scope.currentEdit = id;
+    if($scope.post.brands[id].editClass == 'idle'){
+      $scope.post.brands[id].editClass = 'edit';
+    }else{
+       $scope.post.brands.splice(id, 1);
+        for(var i in $scope.post.brands){
+          $scope.post.brands[i].posId = i;
+        }
+      $scope.currentBrandId = $scope.post.brands.length;
+    }
+  }
+})
+.animation('.tag-brand', function() {
+  return {
+    enter : function(element, parentElement, afterElement){
+      element.css('margin-left', -element[0].clientWidth/2 + 'px');
+    }
+  };
 });

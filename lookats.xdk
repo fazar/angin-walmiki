@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "",
       "projectGuid": "ce98060c-865a-4b95-a95d-6dc460a7bc4e",
-      "lastModifiedDate": 1416333890732,
+      "lastModifiedDate": 1416498211819,
       "creationDate": 1416331866812
     },
     "sourceDirectory": "www",
@@ -62,6 +62,13 @@
         "name": "Keyboard",
         "origin": "https://github.com/driftyco/ionic-plugins-keyboard.git",
         "originType": "repo"
+      },
+      {
+        "id": "org.apache.cordova.file-transfer",
+        "version": "0.4.3",
+        "selectedState": "Included",
+        "data": {},
+        "paramvals": {}
       }
     ],
     "serviceMethods": [],

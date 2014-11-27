@@ -5,9 +5,14 @@
                 <span class="input-label">Caption</span>
                 <input type="text" ng-model="post.title" name="post.title" placeholder="Caption">
             </label>
-            <label class="item">
-                <img ng-src="{{lastPhoto}}" style="max-width: 100%">
-            </label>
+            <div class="item post-image-holder"  >
+                <div class="post-image-layer" ng-click="imageTap($event)">
+                    <img class="post-image" ng-src="{{myCroppedImage}}" />
+                </div>
+                  <li class="item tag-brand {{brand.editClass}}"  ng-click="editBrand(brand.posId)" id="brand-{{brand.posId}}" style="left:{{brand.coordinate[0]}}px;top:{{brand.coordinate[1]}}px" ng-repeat="brand in post.brands">
+                      {{brand.name}}
+                  </li>
+            </div>
             <label class="item item-input">
                 <!--input type="text" ng-model="post.tags" name="post.tags" placeholder="Tag Values"-->
                 <input type="text" ng-model="post.tagNames" name="post.tagNames" ng-click="addTags()" placeholder="Tags">

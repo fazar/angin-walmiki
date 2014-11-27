@@ -1,11 +1,10 @@
 angular.module('lookats.controllers')
-
 .controller('profileCtrl', function($scope, $stateParams, $ionicNavBarDelegate, $state,
 									userService, $ionicLoading) {
 	'use strict';
 	var interests = ['beach', 'party', 'formal party', 'travel', 'carnaval', 'sports', 'football', 'library', 'music', 'jazz', 'movie', 'film', 'car', 'girlie','mainly'];
 	var interestsChosen = [];
-		
+
 	$scope.interests = interests;
 	$scope.customInterest = '';
 	$scope.interestsChosen = interestsChosen;
@@ -62,14 +61,14 @@ angular.module('lookats.controllers')
 			$ionicLoading.show({
 				template: 'loading'
 			});
-			
+
 			$scope.postView = view;
 			setTimeout(function(){
 				$ionicLoading.hide();
 			}, 1000);
 		}
 	};
-	
-	
+
+
 
 });
