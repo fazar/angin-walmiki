@@ -85,7 +85,7 @@ angular.module('Lookats', ['ionic', 'config', 'lookats.controllers', 'lookats.se
     controller: 'cropimageCtrl'
   })
   .state('tab.profile', {
-    url:'/profile',
+    url:'/profile/:id',
     views: {
       'tab-home': {
         templateUrl: 'templates/profile/index.html',
