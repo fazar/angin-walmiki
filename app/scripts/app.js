@@ -2,8 +2,7 @@
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
-angular.module('Lookats', ['ionic', 'config', 'lookats.controllers', 'lookats.services'])
-
+angular.module('Lookats', ['ionic', 'config', 'lookats.controllers', 'lookats.services', 'ngImgCrop'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -17,7 +16,9 @@ angular.module('Lookats', ['ionic', 'config', 'lookats.controllers', 'lookats.se
     }
   });
 })
-
+.config(function($compileProvider){
+  $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|file|blob|cdvfile|content):|data:image\//);
+})
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
   $httpProvider.interceptors.push('authInterceptor');
   $stateProvider
@@ -77,6 +78,11 @@ angular.module('Lookats', ['ionic', 'config', 'lookats.controllers', 'lookats.se
         controller: 'takephotoCtrl'
       }
     }
+  })
+  .state('cropimage', {
+    url: '/cropimage',
+    templateUrl: 'templates/home/cropimage.html',
+    controller: 'cropimageCtrl'
   })
   .state('tab.profile', {
     url:'/profile/:id',

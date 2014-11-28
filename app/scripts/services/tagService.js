@@ -27,8 +27,22 @@ angular.module('lookats.services')
     }, 100);
     return deferred.promise;
   };
+  var searchBrands = function(searchFilter){
+     var deferred = $q.defer();
+    var matches = [];
+    $http.get(window.lookats.baseUrl + 'api/brands/' + searchFilter)
+        .success( function(data) {
+            matches = data;
+        })
+        .error( function(err) {console.log(err);});
+    $timeout( function(){
+      deferred.resolve( matches );
+    }, 100);
+    return deferred.promise;
+  };
   return {
     searchTags : searchTags,
-    searchUsers : searchUsers
+    searchUsers : searchUsers,
+    searchBrands : searchBrands
   };
 });

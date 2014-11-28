@@ -1,11 +1,10 @@
 angular.module('lookats.controllers')
-
 .controller('profileCtrl', function($scope, $stateParams, $ionicNavBarDelegate, $state,
 									userService, $ionicLoading) {
 	'use strict';
 	var interests = ['beach', 'party', 'formal party', 'travel', 'carnaval', 'sports', 'football', 'library', 'music', 'jazz', 'movie', 'film', 'car', 'girlie','mainly'];
 	var interestsChosen = [];
-		
+
 	$scope.interests = interests;
 	$scope.customInterest = '';
 	$scope.interestsChosen = interestsChosen;
@@ -16,12 +15,12 @@ angular.module('lookats.controllers')
 		{username : 'putu', id:'4'}
 	];
 
-	userService.get($stateParams.id).then(function(data) {		
+	userService.get($stateParams.id).then(function(data) {
 		console.log(data);
 		$scope.user = data;
 	});
 
-	$scope.selectedTab = 'posts';	
+	$scope.selectedTab = 'posts';
 	userService.posts($stateParams.id).then(function(data){
 
 		$scope.posts = data;
@@ -79,7 +78,6 @@ angular.module('lookats.controllers')
 	$scope.changePostView = function(view) {
 		if($scope.postView !== view) {
 			$ionicLoading.show();
-			
 			$scope.postView = view;
 			setTimeout(function(){
 				$ionicLoading.hide();

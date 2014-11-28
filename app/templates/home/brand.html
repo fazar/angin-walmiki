@@ -1,0 +1,14 @@
+<ion-header-bar class="bar item-input-inset">
+    <label class="item-input-wrapper">
+        <i class="icon ion-ios7-search placeholder-icon"></i>
+        <input type="search" placeholder="Search" ng-change="searchBrands()" ng-model="data.searchBrand">
+    </label>
+    <button class="button button-clear" ng-click="resolveBrand()">
+        Done
+    </button>
+    <ion-header-bar class="bar-subheader">
+        <div class="list">
+            <li class="item" ng-click="addBrand(brand)" ng-repeat="brand in data.brands" >{{brand.name}}</li>
+        </div>
+    </ion-header-bar>
+</ion-header-bar>

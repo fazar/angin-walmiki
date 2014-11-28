@@ -1,0 +1,27 @@
+<!-- <ion-nav-bar class="bar-positive" animation="nav-title-slide-ios7">
+    <ion-nav-back-button class="button-clear">
+    <i class="ion-arrow-left-c"></i> Back
+  </ion-nav-back-button>
+ </ion-nav-bar>
+
+  <ion-nav-view> -->
+    <ion-view>
+        <ion-nav-bar class="bar-positive">
+            <ion-nav-back-button>
+              Back
+            </ion-nav-back-button>
+            <h1 class="title">LOOKATS</h1>
+            <div class="buttons right-buttons">
+              <button class="button icon ion-arrow-right-a" ng-click="next()">
+              </button>
+            </div>
+          </ion-nav-bar>
+        <ion-content class="cropimage">
+            <div class="cropArea">
+            <img-crop image="tobeCropped" result-image-quality="1.0" result-image-size="800" on-change="test($dataURI)" result-image="myCroppedImage"></img-crop>
+          </div>
+        </ion-content>
+    </ion-view>
+<!-- </ion-nav-view> -->
+
+
