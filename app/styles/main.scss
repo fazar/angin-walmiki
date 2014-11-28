@@ -225,23 +225,22 @@ $secondary-color : #bdbdbd;
     vertical-align: middle;
     height: 400px;
 
+      img {
+        height: 80px;
+        width: 80px;
+        border-radius: 5%;
+      }
 
-    img {
-      height: 80px;
-      width: 80px;
-      border-radius: 5%;
-    }
+      span.fullname {
+        display: block;
+        font-size: 20px;
+        font-style: normal;
+      } 
 
-    span.fullname {
-      display: block;
-      font-size: 20px;
-      font-style: normal;
-    } 
-
-    span {
-      color: #ffffff;
-      font-style: italic;
-    }
+      span {
+        color: #ffffff;
+        font-style: italic;
+      }
 
   }
 }
@@ -320,12 +319,15 @@ $secondary-color : #bdbdbd;
   -webkit-transition: 1000ms all;
 }
 
-.cover-login {
-  background: url('../images/cover-login.jpg');
+.cover-login, .cover-register {  
   width: 100%;
   height: 270px;
   background-size: cover;
   background-position: center center;
+}
+
+.cover-login {
+  background-image: url('../images/cover-login.jpg');
 }
 
 .login-form {
@@ -346,6 +348,55 @@ $secondary-color : #bdbdbd;
   -webkit-transform: rotate(223deg);
   transform: rotate(223deg);    
   font-size:32px;
+}
+
+.cover-register {  
+  width: 100%;
+  height: 300px;
+  background-color: #757575;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  display: table;
+}
+
+.cover-wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 81%;
+  padding-top: 30px;
+
+  > .avatar {
+    border-radius: 3px;
+    text-align: center;
+    height: 80px;
+    width: 80px;
+    margin: 10px auto;
+    padding-top: 18px;
+    background-color: #e0e0e0;
+    color: #424242;
+    outline: 1px solid #757575;
+    > span.icon {
+      display: block;
+      font-size: 30px;
+    }
+  }
+
+  > .cover-user {
+    border-radius: 3px;
+    text-align: center;
+    height: 80px;
+    width: 80px;
+    margin: 15px auto;
+    padding-top: 18px;
+    color: #e0e0e0;
+    outline: 1px solid #e0e0e0;
+    > span.icon {
+      display: block;
+      font-size: 30px;      
+    }
+  }
 }
 
 /*

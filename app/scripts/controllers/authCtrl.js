@@ -66,6 +66,14 @@ angular.module('lookats.controllers')
 		$state.go('auth.welcome');
 	};
 
+	$scope.takePhoto = function() {
+		alert('takePhoto');
+	};
+
+	$scope.takeCover = function() {
+		alert('takeCover');
+	};
+
 	var login = function(username, password, isFromRegister) {
 		var userData = {username : username, password : password};
 		$http.post(window.lookats.baseUrl + 'api/authenticate', userData)

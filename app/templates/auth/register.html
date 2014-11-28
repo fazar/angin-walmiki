@@ -1,9 +1,22 @@
 <div class="bar bar-loading bar-assertive" ng-if="validation.isFailed">
   {{validation.message}}
 </div>
+
 <form type="POST" name="registerForm" novalidate="novalidate" ng-init="setFormScope(this)">
   <ion-view title="Lookats">
-    <ion-content class="slide-under-header has-header">
+    <ion-content>
+      <div class="cover-register">
+        <div class="cover-wrapper">
+          <div class="avatar" ng-click="takePhoto()">
+            <span class="ion-plus-round icon"></span>
+            <span class="title">photo</span>
+          </div>
+          <div class="cover-user" ng-click="takeCover()">
+            <span class="ion-plus-round icon"></span>
+            <span class="title">cover</span>
+          </div>          
+        </div>
+      </div>  
       <div class='register'>      
           <div class="list login-form">          
             <label class="item item-input">
