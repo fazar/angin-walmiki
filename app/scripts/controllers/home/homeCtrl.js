@@ -3,7 +3,7 @@ angular.module('lookats.controllers')
 	'use strict';
 	$compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|blob):|data:image\//);
 })
-.controller('homeCtrl', function($scope, userService, $timeout) {
+.controller('HomeCtrl', function($scope, userService, $timeout) {
 	'use strict';
 	
 	userService.getTimeline().then(function(data){

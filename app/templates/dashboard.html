@@ -22,24 +22,24 @@
 <ion-tabs class="tabs-icon-top">
 
   <!-- Dashboard Tab -->
-  <ion-tab title="Home" icon="icon ion-home" href="#/tab/home" ng-click="goToHome()">
-    <ion-nav-view name="tab-home"></ion-nav-view>
+  <ion-tab title="Home" icon="icon ion-home" href="#/home">
+    <ion-nav-view name="dashboard-home"></ion-nav-view>
   </ion-tab>
 
-  <ion-tab title="Discover" icon="icon ion-search" href="#/tab/discover">
-    <ion-nav-view name="tab-discover"></ion-nav-view>
+  <ion-tab title="Discover" icon="icon ion-search" href="#/dashboard/discover">
+    <ion-nav-view name="dashboard-discover"></ion-nav-view>
   </ion-tab>
 
   <ion-tab title="Camera" icon="icon ion-camera" ng-click="retake()" href="#/tab/camera">
-    <ion-nav-view name="tab-camera"></ion-nav-view>
+    <ion-nav-view name="dashboard-camera"></ion-nav-view>
   </ion-tab>
 
-  <ion-tab title="Notifications" icon="icon ion-heart" href="#/tab/friends">
-    <ion-nav-view name="tab-friends"></ion-nav-view>
+  <ion-tab title="Notifications" icon="icon ion-heart" href="#/dashboard/notification">
+    <ion-nav-view name="dashboard-notification"></ion-nav-view>
   </ion-tab>
 
-  <ion-tab title="Account" icon="icon ion-gear-b" href="#/tab/account">
-    <ion-nav-view name="tab-account"></ion-nav-view>
+  <ion-tab title="Profile" icon="icon ion-gear-b" href="#/dashboard/profile">
+    <ion-nav-view name="dashboard-myprofile"></ion-nav-view>
   </ion-tab>
 
 

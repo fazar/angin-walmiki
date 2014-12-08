@@ -3,7 +3,7 @@ angular.module('lookats.controllers')
 .config(function($compileProvider){
   $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
 })
-.controller('tabCtrl', function($scope,  Camera, $ionicModal, tagService, $state, $rootScope) {
+.controller('DashboardCtrl', function($scope,  Camera, $ionicModal, tagService, $state, $rootScope) {
   $scope.retake = function(){
     //    e.preventDefault();
     $ionicModal.fromTemplateUrl('templates/home/pictureopt.html', {
@@ -39,7 +39,7 @@ angular.module('lookats.controllers')
   };
 
   $scope.goToLogin = function() {
-    $state.go('auth.welcome');
+    $state.go('welcome');
   };
 
   $scope.goToHome = function () {

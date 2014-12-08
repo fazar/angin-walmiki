@@ -21,94 +21,130 @@ angular.module('Lookats', ['ionic', 'config', 'lookats.controllers', 'lookats.se
 })
 .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
   $httpProvider.interceptors.push('authInterceptor');
-  $stateProvider
-  .state('intro', {
+  $stateProvider  
+  .state('welcome', {
+    url:'/welcome',
+    templateUrl: 'templates/welcome/index.html'
+  })
+  .state('welcome.intro', {
     url: '/',
-    templateUrl: 'templates/intro.html',
-    controller: 'IntroCtrl'
+    templateUrl: 'templates/welcome/intro.html',
+    controller: 'WelcomeIntroCtrl'
+  })  
+  .state('welcome-login', {
+    url: '/login',
+    templateUrl: 'templates/welcome/login.html',
+    controller: 'WelcomeLoginCtrl'
   })
-  .state('main', {
-    url: '/main',
-    templateUrl: 'templates/main.html',
-    controller: 'MainCtrl'
-  })
-  /*.state('welcome', {
-    url:'/welcome',
-    templateUrl: 'templates/welcome.html'
-  })*/
-  .state('auth', {
-    abstract: true,
-    url: '/auth',
-    templateUrl: 'templates/auth/layout.html'
-  })
-  .state('auth.login', {
-    url: '/auth',
-    templateUrl: 'templates/auth/login.html',
-    controller: 'authCtrl'
-  })
-  .state('auth.register', {
+  .state('welcome-register', {
     url: '/register',
-    templateUrl: 'templates/auth/register.html',
-    controller: 'authCtrl'
+    templateUrl: 'templates/welcome/register.html',
+    controller: 'WelcomeRegisterCtrl'
+  })  
+  .state('welcome-interest', {
+    url:'/interest',
+    templateUrl: 'templates/welcome/interest.html',
+    controller: 'WelcomeInterestCtrl'
   })
-  .state('auth.welcome', {
-    url:'/welcome',
-    templateUrl: 'templates/welcome.html'
+  .state('welcome-recommendedUser', {
+    url:'/recommendeduser',
+    templateUrl: 'templates/welcome/recommendedUser.html',
+    controller: 'WelcomeRecommendedUserCtrl'
   })
-  .state('tab', {
-    url: '/tab',
+
+
+  .state('dashboard', {
+    url: '/dashboard',
     abstract: true,
-    templateUrl: 'templates/home/layout.html',
-    controller: 'tabCtrl'
+    templateUrl: 'templates/dashboard.html',
+    controller: 'DashboardCtrl'
   })
-  .state('tab.home', {
+
+
+  .state('dashboard.home', {
     url: '/home',
     views: {
-      'tab-home': {
-        templateUrl: 'templates/home/timeline.html',
-        controller: 'homeCtrl'
+      'dashboard-home': {
+        templateUrl: 'templates/home/index.html',
+        controller: 'HomeCtrl'
       }
     }
   })
-  .state('tab.camera', {
-    url: '/camera',
-    views: {
-      'tab-camera': {
-        templateUrl: 'templates/home/camera.html',
-        controller: 'takephotoCtrl'
-      }
-    }
-  })
-  .state('cropimage', {
-    url: '/cropimage',
-    templateUrl: 'templates/home/cropimage.html',
-    controller: 'cropimageCtrl'
-  })
-  .state('tab.profile', {
+  .state('dashboard.home-profile', {
     url:'/profile/:id',
     views: {
-      'tab-home': {
-        templateUrl: 'templates/profile/index.html',
-        controller: 'profileCtrl'
+      'dashboard-home': {
+        templateUrl: 'templates/home/profile.html',
+        controller: 'HomeProfileCtrl'
       }
     }
   })
-  .state('interest', {
-    url:'/interest',
-    templateUrl: 'templates/profile/interest.html',
-    controller: 'profileCtrl'
+
+
+  .state('dashboard.discover', {
+    url: '/discover',
+    views: {
+      'dashboard-discover': {
+        templateUrl: 'templates/discover/index.html',
+        controller: 'DiscoverCtrl'
+      }
+    }
   })
-  .state('recommended-user', {
-    url:'/recommended-user',
-    templateUrl: 'templates/profile/recommended-user.html',
-    controller: 'profileCtrl'
+
+
+  .state('dashboard.photo', {
+    url: '/photo',
+    views: {
+      'dashboard-photo': {
+        templateUrl: 'templates/photo/index.html',
+        controller: 'PhotoCtrl'
+      }
+    }
   })
-  .state('new-post', {
-    url: '/new-post',
-    templateUrl: 'templates/post/create.html'
+  .state('dashboard.photo.crop', {
+    url: '/crop',
+    templateUrl: 'templates/photo/crop.html',
+    controller: 'CropCtrl'
+  })
+  .state('dashboard.photo.post', {
+    url: '/post',
+    templateUrl: 'templates/photo/post.html'
+  })
+
+
+  .state('dashboard.notification', {
+    url: '/notification',
+    views: {
+      'dashboard-notification': {
+        templateUrl: 'templates/notification/index.html',
+        controller: 'NotificationCtrl'
+      }
+    }
+  })
+
+
+  .state('dashboard.profile', {
+    url:'/profile/',
+    views: {
+      'dashboard-profile': {
+        templateUrl: 'templates/profile/index.html',
+        controller: 'ProfileCtrl'
+      }
+    }
+  })
+
+
+  .state('dashboard.account', {
+    url: '/account',
+    views: {
+      'dashboard-account': {
+        templateUrl: 'templates/account/index.html'
+      }
+    }
   })
   ;
 
-  $urlRouterProvider.otherwise('/tab/home');
+  //$urlRouterProvider.otherwise('/dashboard/home');
+  $urlRouterProvider.otherwise('/welcome');
 
 });

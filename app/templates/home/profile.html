@@ -1,0 +1,73 @@
+<ion-view>  
+  <ion-content>
+  
+    <div class="cover-profile" ng-style="{'background-image': 'url(' + user.cover + ')'}">
+    
+      <div class="avatar">
+          <img ng-src="{{user.avatar}}"></img>
+          <span class="fullname">{{user.fullname}}</span>
+          <span class="following">{{user.following}} following</span>, 
+          <span class="followers">{{user.followers}} followers</span>          
+          <br/><button class="follow" ng-click="follow(user.id)" ng-show="!user.isSelf && !user.areYouFollowHim">Follow</button>
+          <br/><span ng-show="!user.isSelf && user.areYouFollowHim">Following</span>
+          <br/><span ng-show="!user.isSelf && user.isYourFollower">Following You</span>          
+      </div>
+    </div>
+    <div class="profile-tabs item tabs tabs-secondary tabs-icon-left">
+      <a class="tab-item" ui-sref="tab.profile" ng-class="{'tab-item-active': selectedTab === 'posts'}" ng-click="selectedTab = 'posts'">
+        <span class="first-title">ALL MY</span> 
+        <span class="second-title">POSTS</span>
+      </a>
+      <a class="tab-item" ui-sref="tab.profile" ng-class="{'tab-item-active': selectedTab === 'liked'}" ng-click="selectedTab = 'liked'">        
+        <span class="first-title">THAT I'VE</span> 
+        <span class="second-title">LIKED</span>        
+      </a>
+      <a class="tab-item" href="#">        
+        <span class="first-title">ALL MY</span> 
+        <span class="second-title">WISHES</span>
+      </a>
+      <a class="tab-item" href="#">        
+        <span class="first-title">ALL MY</span> 
+        <span class="second-title">PHOTOS</span>         
+      </a>      
+    </div>
+    <div class="post-view">      
+      <a ng-click="changePostView('timeline')" ng-class="{'active' : postView === 'timeline'}"><i class="icon ion-navicon"></i></a>
+      <span></span>
+      <a ng-click="changePostView('thumbnail')" ng-class="{'active' : postView === 'thumbnail'}"><i class="icon ion-grid"></i></a>
+    </div>
+    <div class="list-wrapper" ng-hide="showPostView">
+      <div class="list card {{postView}}" ng-repeat="post in posts track by $index">
+        <div class="post">        
+          <img ng-src="{{post.author.avatar}}" class="post-avatar">
+          <img ng-src="{{post.image.url}}" class="post-image" />
+          <div class="post-options">
+            <a class="tab-item" href="#">
+              <i class="icon ion-thumbsup"></i>              
+              <span>{{post.likeNumber}}</span>
+            </a>
+            <a class="tab-item" href="#">
+              <i class="icon ion-chatbox"></i>              
+              <span>{{post.commentNumber}}</span>
+            </a>
+            <a class="tab-item" href="#">
+              <i class="icon ion-share"></i>
+              <span>{{post.relookNumber}}</span>
+            </a>
+          </div>
+          <div class="post-title">            
+            <div class="caption-wrapper">
+              <span class="username"><a ui-sref="tab.profile({id : post.author.id})" class="profile">{{post.author.username}}</a> :</span> 
+              <span class="caption">Nikmati indahnya hidup ini bersama dian sastro</span>
+              <span class="time">2 Hours Ago</span>
+            </div>
+            <img ng-src="{{post.avatar}}" class="post-avatar">
+          </div>
+        </div>
+      <div>
+    </div>
+
+
+  </ion-content>
+</ion-view>
+
