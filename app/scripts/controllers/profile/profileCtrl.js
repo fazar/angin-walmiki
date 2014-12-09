@@ -1,9 +1,9 @@
 angular.module('lookats.controllers')
-.controller('HomeProfileCtrl', function($scope, $stateParams, $ionicNavBarDelegate, $state,
+.controller('ProfileCtrl', function($scope, $stateParams, $ionicNavBarDelegate, $state,
 									userService, $ionicLoading) {
 	'use strict';
 
-	userService.getUserById($stateParams.id).then(function(data) {
+	userService.getUser().then(function(data) {
 		$scope.user = data;
 	});
 
@@ -22,7 +22,7 @@ angular.module('lookats.controllers')
 		location : 'Indonesia',
 		interest : ['travel', 'philosophy']
 	}*/
-	
+
 	$scope.postView = 'thumbnail';
 	$scope.showPostView = false;
 	$scope.changePostView = function(view) {
@@ -34,4 +34,5 @@ angular.module('lookats.controllers')
 			}, 1000);
 		}
 	};
+	
 });

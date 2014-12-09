@@ -71,7 +71,7 @@ angular.module('Lookats', ['ionic', 'config', 'lookats.controllers', 'lookats.se
     }
   })
   .state('dashboard.home-profile', {
-    url:'/profile/:id',
+    url:'/user/profile/:id',
     views: {
       'dashboard-home': {
         templateUrl: 'templates/home/profile.html',
@@ -124,7 +124,7 @@ angular.module('Lookats', ['ionic', 'config', 'lookats.controllers', 'lookats.se
 
 
   .state('dashboard.profile', {
-    url:'/profile/',
+    url:'/profile',
     views: {
       'dashboard-profile': {
         templateUrl: 'templates/profile/index.html',
@@ -134,14 +134,14 @@ angular.module('Lookats', ['ionic', 'config', 'lookats.controllers', 'lookats.se
   })
 
 
-  .state('dashboard.account', {
+  /*.state('dashboard.account', {
     url: '/account',
     views: {
       'dashboard-account': {
         templateUrl: 'templates/account/index.html'
       }
     }
-  })
+  })*/
   ;
 
   //$urlRouterProvider.otherwise('/dashboard/home');
