@@ -55,11 +55,11 @@ angular.module('lookats.services')
 				
 				$http.get(window.lookats.baseUrl + 'api/user/timeline')
 				.success( function( data ) {
-					var posts = [];
-					var post = {};
+					var posts = [];					
 					//posts = data;
 					//we are using foreach manually instead of assign it automatically.
 					data.forEach(function(item){
+						var post = {};
 						post.id = item._id;
 						post.title = item.title;
 						post.image = {

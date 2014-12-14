@@ -3,17 +3,17 @@ angular.module('lookats.controllers')
 	'use strict';
 	$compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|blob):|data:image\//);
 })
-.controller('HomeCtrl', function($scope, userService, $timeout) {
+.controller('HomeCtrl', function($scope, userService, $timeout, $rootScope) {
 	'use strict';
-	
-	userService.getTimeline().then(function(data){
-		//console.log(data);
-		$timeout(function() {
+	$rootScope.pageTitle = "LOOKATS";
+	userService.getTimeline().then(function(data) {
+		console.log(data);
+		$scope.posts = data;
+		/*$timeout(function() {
 			$scope.$apply(function(){
 				$scope.posts = data;
-				console.log($scope.posts);
 			});
-		});
+		});*/
 
 	});
 

@@ -79,6 +79,17 @@ angular.module('Lookats', ['ionic', 'config', 'lookats.controllers', 'lookats.se
       }
     }
   })
+  .state('dashboard-home-comment', {
+    url:'/comment/:postId',
+    templateUrl: 'templates/home/comment.html',
+    controller: 'HomeCommentCtrl'
+    /*views: {
+      'dashboard-home': {
+        templateUrl: 'templates/home/comment.html',
+        controller: 'HomeCommentCtrl'
+      }
+    }*/
+  })
 
 
   .state('dashboard.discover', {

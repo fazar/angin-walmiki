@@ -429,6 +429,31 @@ $secondary-color : #bdbdbd;
   }
 }
 
+.comments {
+  span.username {
+    color: #212121;
+  }
+
+  span.text {
+    color: #767676;
+  }
+
+  p.createdOn {
+    color: #bdbdbd;
+    font-size: 10px;
+  }
+}
+
+.list.comments {
+  margin-bottom: 0;
+}
+
+.comment-textarea {
+  background-color: #e0e0e0;
+  bottom:0;
+  width: 100%;
+}
+
 /*
 .register {
   > .login-form {

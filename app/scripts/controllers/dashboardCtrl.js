@@ -4,6 +4,7 @@ angular.module('lookats.controllers')
   $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
 })
 .controller('DashboardCtrl', function($scope,  Camera, $ionicModal, tagService, $state, $rootScope) {
+  $rootScope.pageTitle = "LOOKATS";
   $scope.retake = function(){
     //    e.preventDefault();
     $ionicModal.fromTemplateUrl('templates/home/pictureopt.html', {
