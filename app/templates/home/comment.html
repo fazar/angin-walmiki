@@ -1,0 +1,29 @@
+<ion-nav-bar class="bar bar-header bar-dark">
+ 	<button class="button icon ion-home" ng-click="goToLogin()"></button>
+	<h1 class="title">{{pageTitle}}</h1>
+  	<div class="buttons right-buttons">
+      <button class="button icon ion-gear-a">
+      </button>
+    </div>
+</ion-nav-bar>
+<ion-view>
+	<ion-content class="has-footer">
+		<div class="list comments" ng-repeat="comment in comments track by $index">
+			<li class="item item-avatar">
+				<img ng-src="{{comment.author.avatar}}">
+				<span class="username">{{comment.author.username}} : </span>
+				<span class="text">{{comment.text}}</span>
+				<p class="createdOn">{{comment.createdOn}}</p>
+			</li>
+		</div>		
+	</ion-content>	
+</ion-view>
+<form name="commentForm" type="POST">
+	<div class="comment-textarea item item-input-inset bar bar-footer">
+		<label class="item-input-wrapper">
+		  <input type="text" placeholder="say something nice" ng-model="comment.text" name="comment.text" required>
+		</label>
+		<button class="button button-small icon ion-arrow-right-c" ng-disabled="commentForm.$invalid" ng-click="addComment()"></button>
+	</div>
+</form>
+
